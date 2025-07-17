@@ -1,9 +1,9 @@
-import About from "./AboutPage.tsx";
-import "./global.css";
-import Contact from "./ContactPage.tsx";
-import Gallery from "./GalleryPage.tsx";
+import About from "./pages/AboutPage.tsx";
+import "./assets/styles/global.css";
+import Contact from "./pages/ContactPage.tsx";
 import { useState } from "react";
-import { type Tab, TabList} from "./types/types.ts";
+import { type Tab, TabList } from "./types/types.ts";
+import Gallery from "./pages/GalleryPage.tsx";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>("Gallery");

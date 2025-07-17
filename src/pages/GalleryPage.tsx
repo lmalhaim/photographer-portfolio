@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import {  Images } from "./data/imageData";
-import { CategoryList, type Category } from "./types/types";
-import "./global.css";
+import "../assets/styles/global.css";
+import { Images } from "../data/imageData";
+import { type Category, CategoryList } from "../types/types";
 
 export default function Gallery() {
   const [search, setSearch] = useState("");

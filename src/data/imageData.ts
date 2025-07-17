@@ -101,4 +101,3 @@ export const Images: Image[] = [
     category: ["Places"],
   },
 ];
-
