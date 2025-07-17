@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Kanit:ital,wght@0,400;1,500&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+    --font-bitgrid: 'Bitcount Grid Single', sans-serif;
+    --font-kanit: 'Kanit', sans-serif; 
+}
+  
+html,
+body, 
+#root {
+  @apply bg-neutral-900 text-neutral-100 w-full h-full;
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
