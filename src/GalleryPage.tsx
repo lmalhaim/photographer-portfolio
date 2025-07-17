@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {  Images } from "./data/imageData";
-import { Category } from "./types/types";
+import { CategoryList, type Category } from "./types/types";
 import "./global.css";
 
 export default function Gallery() {
@@ -9,7 +9,7 @@ export default function Gallery() {
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [flippedIds, setFlippedIds] = useState<number[]>([]);
   const [imagesShow, setImagesShow] = useState<number>(10);
-  const [activeCategory, setActiveCategory] = useState<Category>(Category.All);
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
 
   const toggleFlip = (id: number) => {
     setFlippedIds((prev) =>
@@ -28,7 +28,7 @@ export default function Gallery() {
   // Filtering
   const filtered = Images.filter((img) => {
     const matchesCategory =
-      activeCategory == Category.All || img.category?.includes(activeCategory);
+      activeCategory == "All" || img.category?.includes(activeCategory);
 
     const matchesSearch =
       img.location.toLowerCase().includes(search.toLowerCase()) ||
@@ -97,7 +97,7 @@ export default function Gallery() {
 
       {/* Category (stub) */}
       <div className="flex items-center justify-center space-x-6 w-full mb-10">
-        {Object.values(Category).map((label) => (
+        {CategoryList.map((label) => (
           <button
             key={label}
             onClick={() => setActiveCategory(label as Category)}

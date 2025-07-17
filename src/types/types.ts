@@ -1,11 +1,5 @@
-export enum Category {
-  All = "All",
-  Portrait = "Portrait",
-  People = "People",
-  Pets = "Pets",
-  Places = "Places",
-}
-
+export const CategoryList = ["All", "Portrait", "People", "Pets", "Places"] as const;
+export type Category = typeof CategoryList[number];
 export type Image = {
   url: string;
   caption: string;
@@ -15,9 +9,7 @@ export type Image = {
 };
 
 
-export enum Tabs {
-  Gallery = "Gallery",
-  About = "About",
-  Contact = "Contact",
-}
+export const TabList = ["Gallery" , "About" , "Contact"] as const; 
+export type Tab = typeof TabList[number];
+
 

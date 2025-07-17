@@ -1,10 +1,12 @@
 {
+  "homepage": "https://lmalhaim.github.io/photographer-portfolio/",
   "name": "photographer-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build", 
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

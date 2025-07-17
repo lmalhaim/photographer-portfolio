@@ -1,12 +1,12 @@
-import About from "./AboutPage";
+import About from "./AboutPage.tsx";
 import "./global.css";
-import Contact from "./ContactPage";
-import Gallery from "./GalleryPage";
+import Contact from "./ContactPage.tsx";
+import Gallery from "./GalleryPage.tsx";
 import { useState } from "react";
-import { Tabs } from "./types/types.ts";
+import { type Tab, TabList} from "./types/types.ts";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<Tabs>(Tabs.Gallery);
+  const [activeTab, setActiveTab] = useState<Tab>("Gallery");
 
   return (
     <div className="w-full min-h-screen">
@@ -20,7 +20,7 @@ export default function App() {
 
           {/* Tabs */}
           <nav className="flex space-x-8">
-            {Object.values(Tabs).map((tab) => (
+            {TabList.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -38,9 +38,9 @@ export default function App() {
           </nav>
         </div>
       </header>
-      {activeTab == Tabs.Gallery && <Gallery />}
-      {activeTab == Tabs.About && <About />}
-      {activeTab == Tabs.Contact && <Contact />}
+      {activeTab == "Gallery" && <Gallery />}
+      {activeTab == "About" && <About />}
+      {activeTab == "Contact" && <Contact />}
     </div>
   );
 }

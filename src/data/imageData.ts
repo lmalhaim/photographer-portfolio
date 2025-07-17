@@ -1,4 +1,4 @@
-import { type Image, Category } from "../types/types";
+import { type Image } from "../types/types";
 
 export const Images: Image[] = [
   {
@@ -6,84 +6,84 @@ export const Images: Image[] = [
     caption: "Evil Gisha",
     date: new Date("2023-07-21T12:00:00"),
     location: "Tokyo, Japan",
-    category: [Category["Portrait"]],
+    category: ["Portrait"],
   },
   {
     url: "/japan-4141581_1280.jpg",
     caption: "Me in Akihabara",
     date: new Date("2023-07-22T12:00:00"),
     location: "Tokyo, Japan",
-    category: [Category["People"]],
+    category: ["People"],
   },
   {
     url: "/pyramid-3804374_1280.jpg",
     caption: "Our Tour Guide",
     date: new Date("2021-06-10T12:00:00"),
     location: "Cairo, Egypt",
-    category: [Category["People"], Category["Places"]],
+    category: ["People", "Places"],
   },
   {
     url: "/dog-9670619_1280.jpg",
     caption: "Lucy Under the Sun",
     date: new Date("2020-06-10T12:00:00"),
     location: "Austin, United States",
-    category: [Category["Pets"], Category["Portrait"]],
+    category: ["Pets", "Portrait"],
   },
   {
     url: "/pexels-carlos-ampudia-2153601507-32804125.jpg",
     caption: "Maya behind the bars",
     date: new Date("2022-05-14T12:00:00"),
     location: "Austin, United States",
-    category: [Category["People"]],
+    category: ["People"],
   },
   {
     url: "/pexels-helen1-20340988.jpg",
     caption: "Helen the tiger",
     date: new Date("2021-12-04T12:00:00"),
     location: "Austin, United States",
-    category: [Category["Pets"]],
+    category: ["Pets"],
   },
   {
     url: "/pexels-njeromin-32508250.jpg",
     caption: "Beach Stalls",
     date: new Date("2021-10-02T12:00:00"),
     location: "Los Angeles, United States",
-    category: [Category["Places"]],
+    category: ["Places"],
   },
   {
     url: "/pexels-tilldaling-12388947.jpg",
     caption: "Sally with a seashell",
     date: new Date("2023-12-01T12:00:00"),
     location: "San Diego, United States",
-    category: [Category["Places"]],
+    category: ["Places"],
   },
   {
     url: "/pexels-alexander-wendt-1264486-2451594.jpg",
     caption: "A tourist at Shibuya",
     date: new Date("2023-07-22T12:00:00"),
     location: "Tokyo, Japan",
-    category: [Category["Portrait"], Category["People"]],
+    category: ["Portrait", "People"],
   },
   {
     url: "/pexels-alexazabache-3214972.jpg",
     caption: "Ancient Walls",
     date: new Date("2021-06-13T12:00:00"),
     location: "Cairo, Egypt",
-    category: [Category["Places"], Category["People"]],
+    category: ["Places", "People"],
   },
   {
     url: "/pexels-michal-petras-2152077115-32994276.jpg",
     caption: "Off-leash",
     date: new Date("2024-05-20T12:00:00"),
     location: "Austin, United States",
-    category: [Category["Pets"], Category["Portrait"]],
+    category: ["Pets", "Portrait"],
   },
   {
     url: "/pexels-pixabay-315191.jpg",
     caption: "Tokyo Nights",
     date: new Date("2023-07-20T12:00:00"),
     location: "Tokyo, Japan",
-    category: [Category["Places"]],
+    category: ["Places"],
   },
 
   {
@@ -91,15 +91,14 @@ export const Images: Image[] = [
     caption: "Dessert Horse",
     date: new Date("2021-06-12T12:00:00"),
     location: "Alexandria, Egypt",
-    category: [Category["People"]],
+    category: ["People"],
   },
   {
     url: "/pexels-pixabay-262786.jpg",
     caption: "The Sphinx ",
     date: new Date("2021-06-12T12:00:00"),
     location: "Cairo, Egypt",
-    category: [Category["Places"]],
+    category: ["Places"],
   },
 ];
-export { Category };
 
