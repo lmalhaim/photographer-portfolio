@@ -1,3 +1,5 @@
+import { formatAssetPath } from "../utils/asset";
+
 export default function About() {
   return (
     <div className="w-full px-6 py-12 flex flex-col items-center text-white">
@@ -13,7 +15,7 @@ export default function About() {
       <div className="w-full max-w-5xl bg-white/3 p-7 shadow-xl flex flex-col justify-between">
         <div className="w-full max-w-5xl flex flex-col md:flex-row gap-8">
           <img
-            src="/pexels-olly-774909.jpg"
+            src={formatAssetPath("/pexels-olly-774909.jpg")}
             alt="Photographer portrait"
             className="w-full md:w-1/3 object-cover"
           />
@@ -60,7 +62,7 @@ export default function About() {
             </p>
           </div>
           <img
-            src="/pexels-fotorobot-339379.jpg"
+            src={formatAssetPath("/pexels-fotorobot-339379.jpg")}
             alt="Photographer Camera"
             className="w-full md:w-1/3 object-cover"
           />

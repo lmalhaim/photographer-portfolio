@@ -20,7 +20,7 @@ export const Images: Image[] = [
     caption: "Our Tour Guide",
     date: new Date("2021-06-10T12:00:00"),
     location: "Cairo, Egypt",
-    category: ["People", "Places"],
+    category: ["People"],
   },
   {
     url: "/dog-9670619_1280.jpg",

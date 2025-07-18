@@ -3,6 +3,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import "../assets/styles/global.css";
 import { Images } from "../data/imageData";
 import { type Category, CategoryList } from "../types/types";
+import { formatAssetPath } from "../utils/asset";
 
 export default function Gallery() {
   const [search, setSearch] = useState("");
@@ -52,7 +53,7 @@ export default function Gallery() {
       {/* Banner */}
       <div className="relative h-100 w-full mb-5">
         <img
-          src="/marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg"
+          src={formatAssetPath("/marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg")}
           className="object-cover w-full h-full"
           alt="Banner background"
         />
@@ -130,7 +131,7 @@ export default function Gallery() {
               {/* Front */}
               <div className="relative w-full backface-hidden">
                 <img
-                  src={url}
+                  src={formatAssetPath(url)}
                   alt={caption}
                   className="w-full h-auto object-cover rounded"
                 />
