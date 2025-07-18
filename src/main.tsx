@@ -6,12 +6,8 @@ import App from './App.tsx'
 createRoot(document.getElementById('root')!).render(
 <StrictMode>
   <div>
-
-
-
     {/* Main App Content */}
       <App />
-
   </div>
 </StrictMode>
 
