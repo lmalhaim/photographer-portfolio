@@ -13,3 +13,6 @@ export const TabList = ["Gallery" , "About" , "Contact"] as const;
 export type Tab = typeof TabList[number];
 
 
+export type SortBy = "Location" | "Date" | "Relevance"; 
+
+

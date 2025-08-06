@@ -76,7 +76,7 @@ export const Images: Image[] = [
     caption: "Off-leash",
     date: new Date("2024-05-20T12:00:00"),
     location: "Austin, United States",
-    category: ["Pets", "Portrait"],
+    category: ["Pets"],
   },
   {
     url: "pexels-pixabay-315191.jpg",

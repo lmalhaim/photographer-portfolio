@@ -10,7 +10,7 @@
 html,
 body, 
 #root {
-  @apply bg-neutral-900 text-neutral-100 w-full h-full;
+  @apply bg-black text-neutral-100 w-full h-full;
   margin: 0 !important;
   padding: 0 !important;
 

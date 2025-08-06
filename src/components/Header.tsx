@@ -1,19 +1,7 @@
-import About from "./pages/AboutPage.tsx";
-import "./assets/styles/global.css";
-import Contact from "./pages/ContactPage.tsx";
-import { useState } from "react";
-import { type Tab, TabList } from "./types/types.ts";
-import Gallery from "./pages/GalleryPage.tsx";
-import Footer from "./components/Footer.tsx";
 
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState<Tab>("Gallery");
-
-  return (
-    <div className="w-full min-h-screen space-y-10">
-      {/* Header */}
-      <header
+export default function Header() {
+    return (      <header
         className={` top-0 w-full z-50  backdrop-blur-xs ${
           activeTab === "Gallery" ? "absolute" : "relative"
         }`}
@@ -43,11 +31,5 @@ export default function App() {
             ))}
           </nav>
         </div>
-      </header>
-      {activeTab == "Gallery" && <Gallery />}
-      {activeTab == "About" && <About />}
-      {activeTab == "Contact" && <Contact />}
-      <Footer/>
-    </div>
-  );
+      </header>); 
 }

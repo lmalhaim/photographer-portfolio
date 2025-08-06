@@ -2,24 +2,27 @@ import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import "../assets/styles/global.css";
 import { Images } from "../data/imageData";
-import { type Category, CategoryList } from "../types/types";
+import { type Category, CategoryList, type SortBy } from "../types/types";
 import { formatAssetPath } from "../utils/asset";
+
+const isSortBy = (value: string | null): value is SortBy =>
+  value !== null && ["Relevance", "Location", "Date"].includes(value);
 
 export default function Gallery() {
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState<string | null>(null);
-  const [flippedIds, setFlippedIds] = useState<number[]>([]);
+  const [sortBy, setSortBy] = useState<SortBy>("Relevance");
+  const [flippedIds, setFlippedIds] = useState<string[]>([]);
   const [imagesShow, setImagesShow] = useState<number>(10);
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
-  const toggleFlip = (id: number) => {
+  const toggleFlip = (url: string) => {
     setFlippedIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+      prev.includes(url) ? prev.filter((u) => u !== url) : [...prev, url]
     );
   };
 
   const handleSort = (option: string | null) => {
-    setSortBy(option);
+    setSortBy(isSortBy(option) ? option : "Relevance");
   };
 
   const handleSearch = (text: string) => {
@@ -43,7 +46,7 @@ export default function Gallery() {
   if (sortBy === "Location") {
     sorted.sort((a, b) => a.location.localeCompare(b.location));
   } else if (sortBy === "Date") {
-    sorted.sort((a, b) => b.date.getTime() - a.date.getTime());
+    sorted.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
 
   // Slicing
@@ -51,7 +54,7 @@ export default function Gallery() {
   return (
     <div>
       {/* Banner */}
-      <div className="relative h-100 w-full mb-5">
+      <div className="relative h-145 w-full mb-5">
         <img
           src={formatAssetPath("/marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg")}
           className="object-cover w-full h-full"
@@ -63,69 +66,77 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Search + Sort */}
-      <div className="flex items-center justify-center space-x-4 w-full mb-8">
+      {/* Search */}
+      <div className="flex justify-center items-end w-full h-auto">
         <input
           type="text"
           placeholder="Search..."
-          className="w-64 border border-neutral-300 rounded p-2"
+          className="w-100 border-b "
           value={search}
           onChange={(e) => handleSearch(e.target.value)}
         />
-        <Menu>
-          <MenuButton className="border border-neutral-300 rounded p-2">
-            Sort By: {sortBy || "Relevance"}
-          </MenuButton>
-          <MenuItems
-            anchor="bottom"
-            className="bg-white text-black p-2 rounded shadow"
-          >
-            {["Relevance", "Location", "Date"].map((option) => (
-              <MenuItem key={option}>
-                <button
-                  className="block w-full text-left hover:bg-gray-100 px-2 py-1 rounded"
-                  onClick={() =>
-                    handleSort(option === "Relevance" ? null : option)
-                  }
-                >
-                  {option}
-                </button>
-              </MenuItem>
-            ))}
-          </MenuItems>
-        </Menu>
       </div>
 
-      {/* Category (stub) */}
-      <div className="flex items-center justify-center space-x-6 w-full mb-10">
-        {CategoryList.map((label) => (
-          <button
-            key={label}
-            onClick={() => setActiveCategory(label as Category)}
-            className={`text-white relative pb-1 transition-all duration-300 ease-in-out cursor-pointer
+      {/* Category (stub) + Sort  */}
+      <div className="flex justify-items-start w-full p-9 ">
+        <div className="flex flex-1 space-x-6 w-full">
+          {CategoryList.map((label) => (
+            <button
+              key={label}
+              onClick={() => setActiveCategory(label as Category)}
+              className={`text-white relative pb-1 transition-all duration-300 ease-in-out cursor-pointer
         ${
           activeCategory === label
             ? 'after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-blue-500'
             : "hover:opacity-70"
         }
       `}
-          >
-            {label}
-          </button>
-        ))}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div>
+          <Menu>
+            <MenuButton className=" text-blue-400">
+              Sort By: {sortBy || "Relevance"}
+            </MenuButton>
+            <MenuItems
+              anchor="bottom"
+              className="backdrop-blur text-white p-2 shadow w-auto "
+            >
+              {["Relevance", "Location", "Date"].map((option) => (
+                <MenuItem key={option}>
+                  <button
+                    className="block w-full text-left hover:bg-gray-500 px-2 py-1 rounded"
+                    onClick={() => handleSort(option)}
+                  >
+                    {option}
+                  </button>
+                </MenuItem>
+              ))}
+            </MenuItems>
+          </Menu>
+        </div>
       </div>
 
       {/* Image Gallery */}
-      <div className="columns-2 sm:columns-3 md:columns-4 gap-4 mb-10 px-4">
-        {visibleImages.map(({ url, caption, date, location }, id) => (
+      <div
+        className={
+          sortBy != "Location" && sortBy != "Date"
+            ? "columns-2 sm:columns-3 md:columns-4 gap-4 mb-10 px-4"
+            : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+        }
+      >
+        {visibleImages.map(({ url, caption, date, location }) => (
           <div
-            key={id}
+            key={url}
             className="mb-4 break-inside-avoid perspective cursor-pointer"
-            onClick={() => toggleFlip(id)}
+            onClick={() => toggleFlip(url)}
           >
             <div
               className={`relative w-full transition-transform duration-700 transform-style-preserve-3d ${
-                flippedIds.includes(id) ? "rotate-y-180" : ""
+                flippedIds.includes(url) ? "rotate-y-180" : ""
               }`}
             >
               {/* Front */}
