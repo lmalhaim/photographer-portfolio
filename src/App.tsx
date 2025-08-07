@@ -1,53 +1,23 @@
 import About from "./pages/AboutPage.tsx";
 import "./assets/styles/global.css";
 import Contact from "./pages/ContactPage.tsx";
-import { useState } from "react";
-import { type Tab, TabList } from "./types/types.ts";
 import Gallery from "./pages/GalleryPage.tsx";
 import Footer from "./components/Footer.tsx";
-
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Header from "./components/Header.tsx";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<Tab>("Gallery");
-
   return (
-    <div className="w-full min-h-screen space-y-10">
-      {/* Header */}
-      <header
-        className={` top-0 w-full z-50  backdrop-blur-xs ${
-          activeTab === "Gallery" ? "absolute" : "relative"
-        }`}
-      >
-        <div className="max-w-7xl ml-3  mr-3 mx-auto px-2 py-5 flex justify-between items-center">
-          {/* Logo or site name */}
-          <div className="text-white text-2xl tracking-wider font-kanit">
-            Jenny's Shutter
-          </div>
-
-          {/* Tabs */}
-          <nav className="flex space-x-8">
-            {TabList.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`text-white relative pb-1 transition-all duration-300 ease-in-out
-                ${
-                  activeTab === tab
-                    ? "after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500"
-                    : "hover:text-blue-400"
-                }
-              `}
-              >
-                {tab}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </header>
-      {activeTab == "Gallery" && <Gallery />}
-      {activeTab == "About" && <About />}
-      {activeTab == "Contact" && <Contact />}
-      <Footer/>
-    </div>
+    <BrowserRouter basename={import.meta.env.BASE_URL }>
+      <div className="w-full min-h-screen space-y-10">
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
