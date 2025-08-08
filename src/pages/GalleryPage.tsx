@@ -131,7 +131,7 @@ export default function Gallery() {
         {visibleImages.map(({ url, caption, date, location }) => (
           <div
             key={url}
-            className="mb-4 break-inside-avoid perspective cursor-pointer"
+            className="mb-4 break-inside-avoid perspective cursor-pointer hover:scale-105 hover:z-100"
             onClick={() => toggleFlip(url)}
           >
             <div
