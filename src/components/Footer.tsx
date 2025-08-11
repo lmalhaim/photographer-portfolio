@@ -52,7 +52,7 @@ export default function Footer() {
           <p className="text-sm uppercase text-gray-500 tracking-wider font-semibold">
             Quick Links
           </p>
-          <ul className="space-y-2 text-right text-gray-300">
+          <ul className="space-y-2 text-right text-gray-300 text-lg">
             <li>
               <Link
                 to="/"
