@@ -15,7 +15,7 @@ export default function Contact() {
     }, 1000);
   };
   return (
-    <div className="w-full px-6 py-12 flex flex-col items-center text-white">
+    <div className="w-full px-4 sm:px-6 py-8 sm:py-12 flex flex-col items-center text-white">
       {/* Header */}
       <div className="w-full max-w-2xl text-center mb-12">
         <h2 className="text-4xl font-bold mb-2">Let’s Connect</h2>
@@ -57,14 +57,16 @@ export default function Contact() {
             ></textarea>
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 transition text-white py-3 px-6 rounded"
+              className="bg-blue-600 hover:bg-blue-700 transition text-white py-3 px-6 rounded w-full sm:w-auto"
             >
               Send Message
             </button>
           </form>
         </div>
       ) : (
-        <h1> Message Sent! </h1>
+        <div className="text-4xl text-green-300 font-semibold mt-8">
+          Message Sent!
+        </div>
       )}
 
       {/* Optional Footer */}

@@ -21,7 +21,7 @@ export default function Header() {
         currentPath === "/" ? "absolute" : "relative"
       }`}
     >
-      <div className="max-w-7xl ml-3  mr-3 mx-auto px-2 py-5 flex justify-between items-center">
+      <div className="ml-3  mr-3 mx-auto px-2 py-5 flex justify-between items-center text-lg sm:text-md">
         {/* Logo or site name */}
         <div className="text-white text-2xl tracking-wider font-kanit">
           Jenny's Shutter

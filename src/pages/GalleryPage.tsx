@@ -54,7 +54,7 @@ export default function Gallery() {
   return (
     <div>
       {/* Banner */}
-      <div className="relative h-145 w-full mb-5">
+      <div className="relative lg:h-145 md:h-125 w-full mb-5">
         <img
           src={formatAssetPath("/marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg")}
           className="object-cover w-full h-full"
@@ -71,20 +71,20 @@ export default function Gallery() {
         <input
           type="text"
           placeholder="Search..."
-          className="w-100 border-b "
+          className="lg:w-xl w-md s:w-sm border-b "
           value={search}
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
 
       {/* Category (stub) + Sort  */}
-      <div className="flex justify-items-start w-full p-9 ">
-        <div className="flex flex-1 space-x-6 w-full">
+      <div className="flex justify-items-start w-full p-6 sm:p-5">
+        <div className="flex flex-1 space-x-4 sm:space-x-3 w-full">
           {CategoryList.map((label) => (
             <button
               key={label}
               onClick={() => setActiveCategory(label as Category)}
-              className={`text-white relative pb-1 transition-all duration-300 ease-in-out cursor-pointer
+              className={`text-white text-lg lg:text-[1.2rem] relative pb-1 transition-all duration-300 ease-in-out cursor-pointer
         ${
           activeCategory === label
             ? 'after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-blue-500'
@@ -98,7 +98,7 @@ export default function Gallery() {
         </div>
         <div>
           <Menu>
-            <MenuButton className=" text-blue-400">
+            <MenuButton className=" text-blue-400 text-lg lg:text-xl ">
               Sort By: {sortBy || "Relevance"}
             </MenuButton>
             <MenuItems
@@ -131,7 +131,7 @@ export default function Gallery() {
         {visibleImages.map(({ url, caption, date, location }) => (
           <div
             key={url}
-            className="mb-4 break-inside-avoid perspective cursor-pointer hover:scale-105 hover:z-100"
+            className="mb-4 break-inside-avoid perspective cursor-pointer hover:scale-105 transition-transform duration-500"
             onClick={() => toggleFlip(url)}
           >
             <div
@@ -157,9 +157,9 @@ export default function Gallery() {
                 />
                 <div className="absolute inset-0 bg-black/50 z-10 rounded" />
                 <div className="relative z-20 text-white text-center px-4 py-6 flex flex-col justify-center h-full space-y-2">
-                  <p className="text-lg font-semibold">{caption}</p>
-                  <p className="text-sm">{location}</p>
-                  <p className="text-sm">
+                  <p className="lg:text-lg  md:text-lg text-md font-semibold">{caption}</p>
+                  <p className="text-sm lg:text-md">{location}</p>
+                  <p className="text-sm lg:text-md">
                     {date.toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-t from-[#111727] to-[#0c0c0cdf] text-gray-300 px-8 py-8">
+    <footer className="bg-gradient-to-t from-[#111727] to-[#0c0c0cdf] text-gray-300 px-2 py-4 lg:px-8 lg:py-8 md:px-8 md:py-8 ">
       {/* Top section */}
       <div className="flex flex-row justify-between p-2 mx-5">
         {/* Logo and social links */}
@@ -49,14 +49,14 @@ export default function Footer() {
 
         {/* Quick links section */}
         <div className="flex flex-col justify-center gap-y-4 mr-10 ">
-          <p className="text-sm uppercase text-gray-400 tracking-wider font-semibold">
+          <p className="text-sm uppercase text-gray-500 tracking-wider font-semibold">
             Quick Links
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-right text-gray-300">
             <li>
               <Link
                 to="/"
-                className="text-gray-300 hover:text-white hover:underline"
+                className=" hover:text-white hover:underline"
               >
                 Gallery
               </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/about"
-                className="text-gray-300 hover:text-white hover:underline"
+                className=" hover:text-white hover:underline"
               >
                 About
               </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/contact"
-                className="text-gray-300 hover:text-white hover:underline"
+                className=" hover:text-white hover:underline"
               >
                 Contact
               </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-white/10 my-6" />
+      <div className="w-full h-px bg-white/10 my-3" />
 
       {/* Copyright */}
       <p className="text-center text-xs text-gray-500">
